@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gracias por tu compra</title>
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <link rel="stylesheet" href="assets/css/estilos.responsive.css">
+</head>
+<body>
+  <section style="max-width:800px;margin:120px auto;background:rgba(255,255,255,.1);color:#fff;padding:30px;border-radius:12px">
+    <h1>¡Gracias por tu compra! 🎉</h1>
+    <p id="estado" style="margin-top:8px">Estado: <strong id="statusText">pendiente</strong></p>
+    <p id="orderIdWrap">N° de pedido: <strong id="orderId"></strong></p>
+    <h3>Resumen</h3>
+    <ul id="items"></ul>
+    <p>Total: <strong id="total"></strong></p>
+    <p><a href="index.html" class="btn" style="display:inline-block;margin-top:12px;background:#642391;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none">Volver a la tienda</a></p>
+  </section>
+
+  <script>
+    // Leemos el pedido guardado antes de salir a pagar
+    const order = JSON.parse(sessionStorage.getItem("last_order") || "null");
+    const urlParams = new URLSearchParams(location.search);
+    const status = urlParams.get("status") || "success"; // success | pending | failure (lo mapeamos desde MP)
+    document.getElementById("statusText").textContent = status;
+
+    if(order){
+      document.getElementById("orderId").textContent = order.id;
+      const ul = document.getElementById("items");
+      order.items.forEach(it=>{
+        const li = document.createElement("li");
+        li.textContent = `${it.cantidad} x ${it.clave} — $${(it.cantidad*it.precioUnitario).toLocaleString("es-AR")}`;
+        ul.appendChild(li);
+      });
+      document.getElementById("total").textContent = `$${order.total.toLocaleString("es-AR")}`;
+    }else{
+      document.getElementById("estado").textContent = "No se encontró el pedido.";
+      document.getElementById("orderIdWrap").style.display = "none";
+    }
+
+    // Limpio el carrito al volver con success
+    if(status === "success") localStorage.removeItem("nogallia_cart_v1");
+  </script>
+</body>
+</html>

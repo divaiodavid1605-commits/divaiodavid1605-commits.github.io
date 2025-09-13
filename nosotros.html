@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros - Nogallia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url(img/fondotextura.png) no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    header {
+      background-color: rgba(62, 6, 89, 0.9);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .contenedor-nosotros {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 16px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    .texto-nosotros {
+      flex: 1;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .imagen-nosotros {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .imagen-nosotros img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      background: #1f1f1f;
+      color: #ccc;
+      text-align: center;
+      padding: 25px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src=img/logo.png alt="Nogallia">
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sustentabilidad.html">Sustentabilidad</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contenedor-nosotros">
+      <div class="texto-nosotros">
+        <h1>¿Quiénes somos?</h1>
+        <p>Somos <strong>Nogallia</strong>, una distribuidora familiar de frutos secos ubicada en el corazón del Alto Valle de Río Negro y Neuquén. Nos especializamos en el pelado, selección, envasado y comercialización de frutos secos como almendras, nueces, avellanas y más.</p>
+        <p>Desde nuestros comienzos apostamos por la calidad, el trato personalizado con el cliente, y el trabajo en equipo con productores locales, asegurando frescura y trazabilidad en cada entrega.</p>
+        <p>Nos mueve la pasión por lo natural y el compromiso con nuestros clientes. Nuestro lema: <em>“Desde la chacra a tu mesa”</em>.</p>
+      </div>
+      <div class="imagen-nosotros">
+        <img src=img/antigua2.jpg alt="Nuestro equipo Nogallia">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Nogallia. Todos los derechos reservados.</p>
+    <p><a href="https://instagram.com/nogallia" target="_blank">@nogallia</a></p>
+  </footer>
+
+</body>
+</html>
